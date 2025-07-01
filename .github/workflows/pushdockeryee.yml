@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ztruabxca/zyura-buntuh-ptero:latest
+          tags: ztruabxca/zyura-22.04:latest
