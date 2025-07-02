@@ -18,6 +18,7 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 RUN mkdir /var/run/sshd
+RUN ssh-keygen -A
 
 EXPOSE 22
 
