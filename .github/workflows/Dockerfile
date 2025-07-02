@@ -13,13 +13,14 @@ RUN apt-get update && apt-get install -y \
     tzdata
 
 RUN echo "zyuraa" > /etc/hostname
+
+RUN useradd -u 999 -m ptero && echo 'ptero:su zyuraa123' | chpasswd && adduser ptero sudo
+
 RUN echo "root:su zyuraa123" | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 RUN mkdir -p /var/run/sshd
-
-RUN usermod -u 999 root
 
 EXPOSE 22
 
