@@ -19,6 +19,8 @@ RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/
 
 RUN mkdir -p /var/run/sshd
 
+RUN usermod -u 999 root
+
 EXPOSE 22
 
 CMD bash -c "ssh-keygen -A && /usr/sbin/sshd -D"
