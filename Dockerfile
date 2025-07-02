@@ -14,9 +14,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN echo "zyuraa" > /etc/hostname
 
-RUN useradd -u 999 -m ptero && echo 'ptero:su zyuraa123' | chpasswd && adduser ptero sudo
-
 RUN echo "root:su zyuraa123" | chpasswd
+
+RUN usermod -u 999 root
 
 EXPOSE 8080
 
