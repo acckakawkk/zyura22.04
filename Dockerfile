@@ -14,10 +14,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN echo "zyuraa" > /etc/hostname
 
-RUN echo "root:su zyuraa123" | chpasswd
+RUN useradd -u 999 -m -s /bin/bash fake_root && echo 'fake_root:zyuraa123' | chpasswd && adduser fake_root sudo
 
-RUN usermod -u 999 root
+USER fake_root
 
-EXPOSE 8080
+WORKDIR /home/fake_root
 
 CMD ["bash", "--login"]
